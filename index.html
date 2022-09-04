@@ -2,14 +2,8 @@
 <html>
 
 <head>
-    <script type="text/javascript"
-        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+    <script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
     </script>
-    <script type="text/javascript">
-    (function(){
-      emailjs.init("YOUR_PUBLIC_KEY");
-    })();
-</script>
     <style>
         .row {
             width: 800px;
@@ -33,7 +27,21 @@
             height: 200px;
         }
 
+        .fill_img1 {
+            width: 200px;
+            height: 200px;
+        }
+
         .img_container {
+            width: 200px;
+            height: 200px;
+            text-align: center;
+            border: 1px solid black;
+            padding: 2px;
+            margin: 10px;
+        }
+
+        .img_container1 {
             width: 200px;
             height: 200px;
             text-align: center;
@@ -108,6 +116,37 @@
             height: 0;
             float: left;
         }
+
+        .drop-active {
+            border-color: #aaa;
+        }
+
+        .drop-target {
+            background-color: #29e;
+            border-color: #fff;
+            border-style: solid;
+        }
+
+        .drag-drop {
+            display: inline-block;
+            min-width: 40px;
+            padding: 2em 0.5em;
+            margin: 1rem 0 0 1rem;
+
+            color: #fff;
+            background-color: #29e;
+            border: solid 2px #fff;
+
+            touch-action: none;
+            transform: translate(0px, 0px);
+
+            transition: background-color 0.3s;
+        }
+
+        .drag-drop.can-drop {
+            color: #000;
+            background-color: #4e4;
+        }
     </style>
 </head>
 
@@ -130,14 +169,20 @@
         <div class="dialog__body">
             <h2>Click to select a image</h2>
             <div class="candidate_container">
-                <img class="candidate_img" id="candidate_img_1" onclick="selectImg1()" src="./website/BK BLUE DARK FRAME.jpg">
-                <img class="candidate_img" id="candidate_img_2" onclick="selectImg2()" src="./website/BK BLUE LIGHT FRAME.jpg">
+                <img class="candidate_img" id="candidate_img_1" onclick="selectImg1()"
+                    src="./website/BK BLUE DARK FRAME.jpg">
+                <img class="candidate_img" id="candidate_img_2" onclick="selectImg2()"
+                    src="./website/BK BLUE LIGHT FRAME.jpg">
                 <img class="candidate_img" id="candidate_img_3" onclick="selectImg3()" src="./website/BK BLUE.jpg">
-                <img class="candidate_img" id="candidate_img_4" onclick="selectImg4()" src="./website/BK GREEN DARK FRAME.jpg">
-                <img class="candidate_img" id="candidate_img_5" onclick="selectImg5()" src="./website/BK GREEN LIGHT FRAME.jpg">
+                <img class="candidate_img" id="candidate_img_4" onclick="selectImg4()"
+                    src="./website/BK GREEN DARK FRAME.jpg">
+                <img class="candidate_img" id="candidate_img_5" onclick="selectImg5()"
+                    src="./website/BK GREEN LIGHT FRAME.jpg">
                 <img class="candidate_img" id="candidate_img_6" onclick="selectImg6()" src="./website/BK GREEN.jpg">
-                <img class="candidate_img" id="candidate_img_7" onclick="selectImg7()" src="./website/BK RED DARK FRAME.jpg">
-                <img class="candidate_img" id="candidate_img_8" onclick="selectImg8()" src="./website/BK RED LIGHT FRAME.jpg">
+                <img class="candidate_img" id="candidate_img_7" onclick="selectImg7()"
+                    src="./website/BK RED DARK FRAME.jpg">
+                <img class="candidate_img" id="candidate_img_8" onclick="selectImg8()"
+                    src="./website/BK RED LIGHT FRAME.jpg">
                 <img class="candidate_img" id="candidate_img_9" onclick="selectImg9()" src="./website/BK RED.jpg">
                 <img class="candidate_img" id="candidate_img_10" onclick="selectImg10()"
                     src="./website/BK SILVER BLUE DARK FRAME.jpg">
@@ -176,9 +221,8 @@
                 <button class="select_btn" id="label4" onclick="showDialog(4)">+</button>
                 <img class="fill_img" id="img4" style="display: none;">
             </div>
-            <div class="img_container">
-                <button class="select_btn" id="label5" onclick="selectFromList()">+</button>
-                <img class="fill_img" id="img5" rossorigin="anonymous" style="display: none;">
+            <div class="img_container1" id="container_5">
+                <img class="fill_img1" id="img5" rossorigin="anonymous" style="display: none;">
             </div>
             <div class="img_container">
                 <button class="select_btn" id="label6" onclick="showDialog(6)">+</button>
@@ -208,6 +252,8 @@
     var finalSelectIndex = -1;
     var finalImgSrc = "";
     var finalImgName = "";
+    var enterd = -1;
+    var leaved = -1;
 
     var selectList = {
         1: "",
@@ -232,21 +278,21 @@
     }
 
     var imageList = [
-     "./website/BK BLUE DARK FRAME.jpg",
-     "./website/BK BLUE LIGHT FRAME.jpg",
-     "./website/BK BLUE.jpg",
-     "./website/BK GREEN DARK FRAME.jpg",
-     "./website/BK GREEN LIGHT FRAME.jpg",
-     "./website/BK GREEN.jpg",
-     "./website/BK RED DARK FRAME.jpg",
-     "./website/BK RED LIGHT FRAME.jpg",
-     "./website/BK RED.jpg",
-     "./website/BK SILVER BLUE DARK FRAME.jpg",
-     "./website/BK SILVER BLUE LIGHT FRAME.jpg",
-     "./website/BK SILVER BLUE.jpg",
-     "./website/BK SILVER RED DARK FRAME.jpg",
-     "./website/BK SILVER RED LIGHT FRAME.jpg",
-     "./website/BK SILVER RED.jpg"
+        "./website/BK BLUE DARK FRAME.jpg",
+        "./website/BK BLUE LIGHT FRAME.jpg",
+        "./website/BK BLUE.jpg",
+        "./website/BK GREEN DARK FRAME.jpg",
+        "./website/BK GREEN LIGHT FRAME.jpg",
+        "./website/BK GREEN.jpg",
+        "./website/BK RED DARK FRAME.jpg",
+        "./website/BK RED LIGHT FRAME.jpg",
+        "./website/BK RED.jpg",
+        "./website/BK SILVER BLUE DARK FRAME.jpg",
+        "./website/BK SILVER BLUE LIGHT FRAME.jpg",
+        "./website/BK SILVER BLUE.jpg",
+        "./website/BK SILVER RED DARK FRAME.jpg",
+        "./website/BK SILVER RED LIGHT FRAME.jpg",
+        "./website/BK SILVER RED.jpg"
     ]
 
     var base64List = [
@@ -271,6 +317,148 @@
         "BK SILVER RED.jpg"
     ]
 
+    interact('.img_container1').dropzone({
+        // only accept elements matching this CSS selector
+        accept: '.fill_img',
+        // Require a 75% element overlap for a drop to be possible
+        overlap: 0.75,
+
+        // listen for drop related events:
+
+        ondropactivate: function (event) {
+            if (selectList["1"] === "" || selectList["2"] === "" || selectList["3"] === "" || selectList["4"] === "" || selectList["5"] === "" || selectList["6"] === "" || selectList["7"] === "" || selectList["8"] === "") {
+                return;
+            }
+            console.log('drop activate')
+            // add active dropzone feedback
+            event.target.classList.add('drop-active')
+        },
+        ondragenter: function (event) {
+            if (selectList["1"] === "" || selectList["2"] === "" || selectList["3"] === "" || selectList["4"] === "" || selectList["5"] === "" || selectList["6"] === "" || selectList["7"] === "" || selectList["8"] === "") {
+                return;
+            }
+            console.log('drag enter')
+            var draggableElement = event.relatedTarget
+            var dropzoneElement = event.target
+
+            // feedback the possibility of a drop
+            dropzoneElement.classList.add('drop-target')
+            draggableElement.classList.add('can-drop')
+        },
+        ondragleave: function (event) {
+            if (selectList["1"] === "" || selectList["2"] === "" || selectList["3"] === "" || selectList["4"] === "" || selectList["5"] === "" || selectList["6"] === "" || selectList["7"] === "" || selectList["8"] === "") {
+                return;
+            }
+            console.log('drag leave')
+            console.log(event);
+            // remove the drop feedback style
+            event.target.classList.remove('drop-target')
+            event.relatedTarget.classList.remove('can-drop')
+        },
+        ondrop: function (event) {
+            if (selectList["1"] === "" || selectList["2"] === "" || selectList["3"] === "" || selectList["4"] === "" || selectList["5"] === "" || selectList["6"] === "" || selectList["7"] === "" || selectList["8"] === "") {
+                return;
+            }
+            console.log('dropped')
+        },
+        ondropdeactivate: function (event) {
+            if (selectList["1"] === "" || selectList["2"] === "" || selectList["3"] === "" || selectList["4"] === "" || selectList["5"] === "" || selectList["6"] === "" || selectList["7"] === "" || selectList["8"] === "") {
+                return;
+            }
+            console.log('ondropdeactivate')
+            console.log(event.relatedTarget.id);
+            switch (event.relatedTarget.id) {
+                case "img1":
+                document.getElementById("img5").style.display = "block";
+                    document.getElementById("img5").src = selectList[1];
+                    finalImgName = selectName[1];
+                    break;
+            
+                    case "img2":
+                    document.getElementById("img5").style.display = "block";
+                    document.getElementById("img5").src = selectList[2];
+                    finalImgName = selectName[2];
+                    break;
+
+                    case "img3":
+                    document.getElementById("img5").style.display = "block";
+                    document.getElementById("img5").src = selectList[3];
+                    finalImgName = selectName[3];
+                    break;
+
+                    case "img4":
+                    document.getElementById("img5").style.display = "block";
+                    document.getElementById("img5").src = selectList[4];
+                    finalImgName = selectName[4];
+                    break;
+
+                    case "img6":
+                    document.getElementById("img5").style.display = "block";
+                    document.getElementById("img5").src = selectList[5];
+                    finalImgName = selectName[5];
+                    break;
+
+                    case "img7":
+                    document.getElementById("img5").style.display = "block";
+                    document.getElementById("img5").src = selectList[6];
+                    finalImgName = selectName[6];
+                    break;
+
+                    case "img8":
+                    document.getElementById("img5").style.display = "block";
+                    document.getElementById("img5").src = selectList[7];
+                    finalImgName = selectName[7];
+                    break;
+
+                    case "img9":
+                    document.getElementById("img5").style.display = "block";
+                    document.getElementById("img5").src = selectList[8];
+                    finalImgName = selectName[8];
+                    break;
+                default:
+                    break;
+            }
+            // remove active dropzone feedback
+            event.target.classList.remove('drop-active')
+            event.target.classList.remove('drop-target')
+        }
+    })
+
+    function dragMoveListener(event) {
+        if (selectList["1"] === "" || selectList["2"] === "" || selectList["3"] === "" || selectList["4"] === "" || selectList["5"] === "" || selectList["6"] === "" || selectList["7"] === "" || selectList["8"] === "") {
+            return;
+        }
+        var target = event.target,
+            // keep the dragged position in the data-x/data-y attributes
+            x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx,
+            y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
+
+        // translate the element
+        target.style.webkitTransform =
+            target.style.transform =
+            'translate(' + x + 'px, ' + y + 'px)';
+
+        // update the posiion attributes
+        target.setAttribute('data-x', x);
+        target.setAttribute('data-y', y);
+    }
+
+    // this is used later in the resizing demo
+    window.dragMoveListener = dragMoveListener;
+
+    interact('.fill_img')
+        .draggable({
+            inertia: true,
+            modifiers: [
+                interact.modifiers.restrictRect({
+                    restriction: 'parent',
+                    endOnly: true
+                })
+            ],
+            autoScroll: true,
+            listeners: { move: dragMoveListener }
+        })
+
     function selectFromList() {
         if (selectList["1"] === "" || selectList["2"] === "" || selectList["3"] === "" || selectList["4"] === "" || selectList["5"] === "" || selectList["6"] === "" || selectList["7"] === "" || selectList["8"] === "") {
             alert("Please select the surrounding picture.");
@@ -284,7 +472,7 @@
             document.getElementById("dialog1").style.display = "block";
         }
     }
-    
+
     async function mergeImages() {
         downloadFromSrc(mergedImg);
     }
