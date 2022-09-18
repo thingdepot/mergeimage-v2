@@ -13,6 +13,8 @@
         .select_btn {
             width: 200px;
             height: 200px;
+			background-color: rgb(78, 78, 78);
+			border: 0.2em solid black;
         }
 
         .select_label {
@@ -36,25 +38,32 @@
             width: 200px;
             height: 200px;
             text-align: center;
-            border: 1px solid black;
-            padding: 2px;
+			border: 0.1em rgb(78, 78, 78);
             margin: 10px;
         }
-
+		
         .img_container1 {
             width: 200px;
             height: 200px;
             text-align: center;
-            border: 1px solid black;
+            border: 3px solid rgb(78, 78, 78);
             margin: 10px;
         }
-
+		
         .merge_container {
             border: 3px solid black;
             border-radius: 15px;
             padding: 20px;
             width: 670px;
             margin: auto;
+        }
+
+		.outer_container {
+			border: 10px solid rgb(78, 78, 78);
+            border-radius: 35px;
+            width: 690px;
+            margin: auto;
+			padding-right: 25px;
         }
 
         body {
@@ -72,7 +81,7 @@
             text-align: center;
             background-color: #333333ee;
         }
-
+		
         .dialog__body {
             background: white;
             width: 800px;
@@ -106,9 +115,9 @@
             margin-top: 10px;
             width: 150px;
             height: 40px;
-            background-color: green;
+            background-color: rgb(44, 44, 44);
             color: white;
-            border: 1px green solid;
+            border: 1px rgb(44, 44, 44);
             border-radius: 5px;
         }
 
@@ -147,27 +156,39 @@
             color: #000;
             background-color: #4e4;
         }
+		
+		h1 {
+			line-height:0.5;
+		}
+		
+		h2 {
+			line-height:0.3;
+		}
+		
+		h2.small {
+			line-height: 0.9;
+		}
     </style>
 </head>
 
 <body>
-    <div class="dialog" id="dialog1">
-        <div class="dialog__body">
-            <div class="candidate_container" id="dialog_content">
-                <img class="candidate_img" id="select_img_1" onclick="selectFinalImg1()">
-                <img class="candidate_img" id="select_img_2" onclick="selectFinalImg2()">
-                <img class="candidate_img" id="select_img_3" onclick="selectFinalImg3()">
-                <img class="candidate_img" id="select_img_4" onclick="selectFinalImg4()">
-                <img class="candidate_img" id="select_img_5" onclick="selectFinalImg5()">
-                <img class="candidate_img" id="select_img_6" onclick="selectFinalImg6()">
-                <img class="candidate_img" id="select_img_7" onclick="selectFinalImg7()">
-                <img class="candidate_img" id="select_img_8" onclick="selectFinalImg8()">
-            </div>
-        </div>
-    </div>
+	<div class="dialog" id="dialog1">
+		<div class="dialog__body">
+			<div class="candidate_container" id="dialog_content">
+				<img class="candidate_img" id="select_img_1" onclick="selectFinalImg1()">
+				<img class="candidate_img" id="select_img_2" onclick="selectFinalImg2()">
+				<img class="candidate_img" id="select_img_3" onclick="selectFinalImg3()">
+				<img class="candidate_img" id="select_img_4" onclick="selectFinalImg4()">
+				<img class="candidate_img" id="select_img_5" onclick="selectFinalImg5()">
+				<img class="candidate_img" id="select_img_6" onclick="selectFinalImg6()">
+				<img class="candidate_img" id="select_img_7" onclick="selectFinalImg7()">
+				<img class="candidate_img" id="select_img_8" onclick="selectFinalImg8()">
+			</div>
+		</div>
+	</div>
     <div class="dialog" id="dialog">
         <div class="dialog__body">
-            <h2>Click to select a image</h2>
+            <h2>Click to select a Avatar</h2>
             <div class="candidate_container">
                 <img class="candidate_img" id="candidate_img_1" onclick="selectImg1()"
                     src="./website/BK BLUE DARK FRAME.jpg">
@@ -200,50 +221,55 @@
             <button class="action_btn" onclick="hideDialog()">Close</button>
         </div>
     </div>
-    <h1>Image Generate</h1>
-    <div class="merge_container">
-        <div class="row">
-            <div class="img_container">
-                <button class="select_btn" id="label1" onclick="showDialog(1)">+</button>
-                <img class="fill_img" id="img1" style="display: none;">
-            </div>
-            <div class="img_container">
-                <button class="select_btn" id="label2" onclick="showDialog(2)">+</button>
-                <img class="fill_img" id="img2" style="display: none;">
-            </div>
-            <div class="img_container">
-                <button class="select_btn" id="label3" onclick="showDialog(3)">+</button>
-                <img class="fill_img" id="img3" style="display: none;">
-            </div>
-        </div>
-        <div class="row">
-            <div class="img_container">
-                <button class="select_btn" id="label4" onclick="showDialog(4)">+</button>
-                <img class="fill_img" id="img4" style="display: none;">
-            </div>
-            <div class="img_container1" id="container_5">
-                <img class="fill_img1" id="img5" rossorigin="anonymous" style="display: none;">
-            </div>
-            <div class="img_container">
-                <button class="select_btn" id="label6" onclick="showDialog(6)">+</button>
-                <img class="fill_img" id="img6" style="display: none;">
-            </div>
-        </div>
-        <div class="row">
-            <div class="img_container">
-                <button class="select_btn" id="label7" onclick="showDialog(7)">+</button>
-                <img class="fill_img" id="img7" style="display: none;">
-            </div>
-            <div class="img_container">
-                <button class="select_btn" id="label8" onclick="showDialog(8)">+</button>
-                <img class="fill_img" id="img8" style="display: none;">
-            </div>
-            <div class="img_container">
-                <button class="select_btn" id="label9" onclick="showDialog(9)">+</button>
-                <img class="fill_img" id="img9" style="display: none;">
-            </div>
-        </div>
-    </div>
+    <h1>BK Avatar</h1>
+	<h2 style="font-weight: normal">1. Select Surronuding Avatars</h2>
+	<h2 style="font-weight: normal">2. Drag and Drop One Avatar to Center</h2>
+	<h2 style="font-weight: normal">3. Download the Central Avatar</h2>
+	<div class="outer_container">
+		<div class="merge_container">
+			<div class="row">
+				<div class="img_container" style="box-shadow: -10px -10px 5px 0px rgb(189, 189, 189)">
+						<button class="select_btn" id="label1" onclick="showDialog(1)">+</button>
+						<img class="fill_img" id="img1" style="display: none">
+				</div>	
+				<div class="img_container" style="box-shadow: 0px -10px 5px 0px rgb(189, 189, 189)">
+					<button class="select_btn" id="label2" onclick="showDialog(2)">+</button>
+					<img class="fill_img" id="img2" style="display: none;">
+				</div>
+				<div class="img_container" style="box-shadow: 10px -10px 5px 0px rgb(189, 189, 189)">
+					<button class="select_btn" id="label3" onclick="showDialog(3)">+</button>
+					<img class="fill_img" id="img3" style="display: none;">
+				</div>
+			</div>
+			<div class="row">
+					<div class="img_container" style="box-shadow: -10px 0px 5px 0px rgb(189, 189, 189)"> 
+						<button class="select_btn" id="label4" onclick="showDialog(4)">+</button>
+						<img class="fill_img" id="img4" style="display: none;">
+					</div>
+					<div class="img_container1" id="container_5"> 
+						<img class="fill_img1" id="img5" rossorigin="anonymous" style="display: none;" visibility="false">
+					</div>
+					<div class="img_container" style="box-shadow: 10px 0px 5px 0px rgb(189, 189, 189)">
+						<button class="select_btn" id="label6" onclick="showDialog(6)">+</button>
+						<img class="fill_img" id="img6" style="display: none;">
+					</div>
+			</div>
+			<div class="row">
+					<div class="img_container" style="box-shadow: -10px 10px 5px 0px rgb(189, 189, 189)">
+						<button class="select_btn" id="label7" onclick="showDialog(7)">+</button>
+						<img class="fill_img" id="img7" style="display: none;">
+					</div>
+					<div class="img_container" style="box-shadow: 0px 10px 5px 0px rgb(189, 189, 189)">
+						<button class="select_btn" id="label8" onclick="showDialog(8)">+</button>
+						<img class="fill_img" id="img8" style="display: none;">
+					</div>
+					<div class="img_container" style="box-shadow: 10px 10px 5px 0px rgb(189, 189, 189)">
+						<button class="select_btn" id="label9" onclick="showDialog(9)">+</button>
+						<img class="fill_img" id="img9" style="display: none;">
+					</div>
+				</div>
+		</div>
+	</div>
     <button class="action_btn" onclick="downloadImage()">Download</button>
 </body>
 <script>
