@@ -534,6 +534,7 @@
     }
 
     async function mergeImgs() {
+		var finalFormat = ''; 
         let offscreenCanvas = document.createElement('canvas')
         offscreenCanvas.width = 600
         offscreenCanvas.height = 600
@@ -541,7 +542,11 @@
         const img = document.getElementById("img5");
         console.log(img)
         imageContext.drawImage(img, 0, 0, 600, 600);
-        return offscreenCanvas.toDataURL('image/jpg')
+		if(finalImgName.includes('gif'))
+			finalFormat = 'image/gif';
+		if(finalImgName.includes('jpg'))
+			finalFormat = 'image/jpg';
+        return offscreenCanvas.toDataURL(finalFormat); 
     }
 
     function previewImage() {
