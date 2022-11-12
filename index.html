@@ -547,7 +547,9 @@
         const img = document.getElementById("img5");
         console.log(img)
         imageContext.drawImage(img, 0, 0, 600, 600);
-        return offscreenCanvas.toDataURL('image/jpeg')
+        //return offscreenCanvas.toDataURL('image/jpeg')
+		var reader = new FileReader(); 
+		return reader.readAsDataURL(img);
     }
 
     function previewImage() {
