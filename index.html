@@ -13,6 +13,8 @@
         .select_btn {
             width: 200px;
             height: 200px;
+			background-color: rgb(78, 78, 78);
+			border: 0.2em solid black;
         }
 
         .select_label {
@@ -36,8 +38,7 @@
             width: 200px;
             height: 200px;
             text-align: center;
-            border: 2px solid black;
-            padding: 2px;
+			border: 0.1em rgb(78, 78, 78);
             margin: 10px;
         }
 		
@@ -45,19 +46,10 @@
             width: 200px;
             height: 200px;
             text-align: center;
-            border: 1px solid black;
+            border: 3px solid rgb(78, 78, 78);
             margin: 10px;
         }
 		
-		.img_container2 {
-            width: 220px;
-            height: 220px;
-            text-align: center;
-			border: 5px solid pink;
-            border-radius: 5px;
-            background-color: solid pink;
-        }
-
         .merge_container {
             border: 3px solid black;
             border-radius: 15px;
@@ -67,7 +59,7 @@
         }
 
 		.outer_container {
-			border: 20px solid pink;
+			border: 10px solid rgb(78, 78, 78);
             border-radius: 35px;
             width: 690px;
             margin: auto;
@@ -123,9 +115,9 @@
             margin-top: 10px;
             width: 150px;
             height: 40px;
-            background-color: green;
+            background-color: rgb(44, 44, 44);
             color: white;
-            border: 1px green solid;
+            border: 1px rgb(44, 44, 44);
             border-radius: 5px;
         }
 
@@ -166,15 +158,15 @@
         }
 		
 		h1 {
-			line-height:0.6;
+			line-height:0.5;
 		}
 		
 		h2 {
-			line-height:0;
+			line-height:0.3;
 		}
 		
-		h3 {
-			line-height: 0.8;
+		h2.small {
+			line-height: 0.9;
 		}
     </style>
 </head>
@@ -196,7 +188,7 @@
 	</div>
     <div class="dialog" id="dialog">
         <div class="dialog__body">
-            <h2>Click to select a image</h2>
+            <h2>Click to select a Avatar</h2>
             <div class="candidate_container">
                 <img class="candidate_img" id="candidate_img_1" onclick="selectImg1()"
                     src="./website/BK BLUE DARK FRAME.jpg">
@@ -225,59 +217,59 @@
                     src="./website/BK SILVER RED LIGHT FRAME.jpg">
                 <img class="candidate_img" id="candidate_img_15" onclick="selectImg15()"
                     src="./website/BK SILVER RED.jpg">
+                <img class="candidate_img" id="candidate_img_16" onclick="selectImg16()"
+                    src="./website/GIF BK_SQ.gif">
             </div>
             <button class="action_btn" onclick="hideDialog()">Close</button>
         </div>
     </div>
-    <h1 style="font-weight: bold">BK Avatar</h1>
-	<h3 style="font-weight: normal">1. Select Surrounding Avatars</h3>
-	<h3 style="font-weight: normal">2. Drag and Drop One Avatar to the Centre </h3>
-	<h3 style="font-weight: normal">3. Download the Centre Avatar </h3>
+    <h1>BK Avatar</h1>
+	<h2 style="font-weight: normal">1. Select surrounding Avatars</h2>
+	<h2 style="font-weight: normal">2. Drag and Drop One Avatar to Center</h2>
+	<h2 style="font-weight: normal">3. Download the Central Avatar</h2>
 	<div class="outer_container">
 		<div class="merge_container">
 			<div class="row">
-				<div class="img_container">
-					<button class="select_btn" id="label1" onclick="showDialog(1)">+</button>
-					<img class="fill_img" id="img1" style="display: none">
-				</div>
-				<div class="img_container">
+				<div class="img_container" style="box-shadow: -10px -10px 5px 0px rgb(189, 189, 189)">
+						<button class="select_btn" id="label1" onclick="showDialog(1)">+</button>
+						<img class="fill_img" id="img1" style="display: none">
+				</div>	
+				<div class="img_container" style="box-shadow: 0px -10px 5px 0px rgb(189, 189, 189)">
 					<button class="select_btn" id="label2" onclick="showDialog(2)">+</button>
 					<img class="fill_img" id="img2" style="display: none;">
 				</div>
-				<div class="img_container">
+				<div class="img_container" style="box-shadow: 10px -10px 5px 0px rgb(189, 189, 189)">
 					<button class="select_btn" id="label3" onclick="showDialog(3)">+</button>
 					<img class="fill_img" id="img3" style="display: none;">
 				</div>
 			</div>
 			<div class="row">
-				<div class="img_container">
-					<button class="select_btn" id="label4" onclick="showDialog(4)">+</button>
-					<img class="fill_img" id="img4" style="display: none;">
-				</div>
-				<div class="img_container2">
-					<div class="img_container1" id="container_5">
-						<img class="fill_img1" id="img5" rossorigin="anonymous" style="display: none;">
+					<div class="img_container" style="box-shadow: -10px 0px 5px 0px rgb(189, 189, 189)"> 
+						<button class="select_btn" id="label4" onclick="showDialog(4)">+</button>
+						<img class="fill_img" id="img4" style="display: none;">
 					</div>
-				</div>
-				<div class="img_container">
-					<button class="select_btn" id="label6" onclick="showDialog(6)">+</button>
-					<img class="fill_img" id="img6" style="display: none;">
-				</div>
+					<div class="img_container1" id="container_5"> 
+						<img class="fill_img1" id="img5" rossorigin="anonymous" style="display: none;" visibility="false">
+					</div>
+					<div class="img_container" style="box-shadow: 10px 0px 5px 0px rgb(189, 189, 189)">
+						<button class="select_btn" id="label6" onclick="showDialog(6)">+</button>
+						<img class="fill_img" id="img6" style="display: none;">
+					</div>
 			</div>
 			<div class="row">
-				<div class="img_container">
-					<button class="select_btn" id="label7" onclick="showDialog(7)">+</button>
-					<img class="fill_img" id="img7" style="display: none;">
+					<div class="img_container" style="box-shadow: -10px 10px 5px 0px rgb(189, 189, 189)">
+						<button class="select_btn" id="label7" onclick="showDialog(7)">+</button>
+						<img class="fill_img" id="img7" style="display: none;">
+					</div>
+					<div class="img_container" style="box-shadow: 0px 10px 5px 0px rgb(189, 189, 189)">
+						<button class="select_btn" id="label8" onclick="showDialog(8)">+</button>
+						<img class="fill_img" id="img8" style="display: none;">
+					</div>
+					<div class="img_container" style="box-shadow: 10px 10px 5px 0px rgb(189, 189, 189)">
+						<button class="select_btn" id="label9" onclick="showDialog(9)">+</button>
+						<img class="fill_img" id="img9" style="display: none;">
+					</div>
 				</div>
-				<div class="img_container">
-					<button class="select_btn" id="label8" onclick="showDialog(8)">+</button>
-					<img class="fill_img" id="img8" style="display: none;">
-				</div>
-				<div class="img_container">
-					<button class="select_btn" id="label9" onclick="showDialog(9)">+</button>
-					<img class="fill_img" id="img9" style="display: none;">
-				</div>
-			</div>
 		</div>
 	</div>
     <button class="action_btn" onclick="downloadImage()">Download</button>
@@ -328,7 +320,8 @@
         "./website/BK SILVER BLUE.jpg",
         "./website/BK SILVER RED DARK FRAME.jpg",
         "./website/BK SILVER RED LIGHT FRAME.jpg",
-        "./website/BK SILVER RED.jpg"
+        "./website/BK SILVER RED.jpg",
+        "./website/GIF BK_SQ.gif"
     ]
 
     var base64List = [
@@ -350,7 +343,8 @@
         "BK SILVER BLUE.jpg",
         "BK SILVER RED DARK FRAME.jpg",
         "BK SILVER RED LIGHT FRAME.jpg",
-        "BK SILVER RED.jpg"
+        "BK SILVER RED.jpg",
+        "GIF BK_SQ.gif"
     ]
 
     interact('.img_container1').dropzone({
@@ -524,7 +518,7 @@
     function downloadFromSrc(src) {
         var a = document.createElement('a');
         a.href = src;
-        a.download = 'merge.gif';
+        a.download = 'merge.jpg';
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);
@@ -540,6 +534,7 @@
     }
 
     async function mergeImgs() {
+		var finalFormat = ''; 
         let offscreenCanvas = document.createElement('canvas')
         offscreenCanvas.width = 600
         offscreenCanvas.height = 600
@@ -547,9 +542,8 @@
         const img = document.getElementById("img5");
         console.log(img)
         imageContext.drawImage(img, 0, 0, 600, 600);
-        //return offscreenCanvas.toDataURL('image/jpeg')
-		var reader = new FileReader(); 
-		return reader.readAsDataURL(img);
+        //return offscreenCanvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
+		return document.write('<img src = "' + img + '"/>');
     }
 
     function previewImage() {
@@ -822,6 +816,12 @@
     function selectImg15() {
         document.getElementById("candidate_img_15").style.display = "none";
         setImage(selectButton, imageList[14]);
+        hideDialog();
+    }
+
+    function selectImg16() {
+        document.getElementById("candidate_img_16").style.display = "none";
+        setImage(selectButton, imageList[15]);
         hideDialog();
     }
 </script>
